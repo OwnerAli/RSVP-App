@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, body, .event-details-container, .event-form, .label {
+    font-family: serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.subtitle {
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.text-input {
+    padding: 5px;
+    width: 20%; /* Adjust the width as needed */
+    margin: 10px auto; /* Center horizontally */
+    display: block; /* Ensure inputs take full width */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.43);
+    color: #fff; /* Text color */
+    font-size: 16px;
+    text-align: left; /* Center-align the input text */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+    background-color: transparent;
+    border: none; /* Remove borders */
+    outline: none; /* Remove the default focus outline (optional) */
+}
+
+.content-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Add transparency */
+    backdrop-filter: blur(5px); /* Add a blur effect to the background */
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 0 auto; /* Center align the container horizontally */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-content: flex-start;
+    justify-content: left;
+    padding-left: 20px;
+    margin-bottom: -10px;
+    background: linear-gradient(45deg, #FF69B4, #FF7B8A, #ffb45e, #FFA74A, #FFC943, #FFED41, #FF69B4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 50% 50%;
+    animation: gradientScroll 30s linear infinite reverse;
+}
+
+@keyframes gradientScroll {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.sub-logo {
+    display: flex;
+    align-content: flex-start;
+    justify-content: left;
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: normal;
+    text-shadow: -2px 0px 4px rgba(0, 0, 0, 0.5), 2px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }

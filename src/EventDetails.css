@@ -1,0 +1,167 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+html, body, .event-details-container, .event-form, .label {
+    font-family: serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+body {
+    background-color: #3B2F63;
+    background-image: radial-gradient(at 50% top, rgba(84, 90, 182, 0.6) 0%, rgba(84, 90, 182, 0) 75%),
+    radial-gradient(at right top, #794aa2 0%, rgba(121, 74, 162, 0) 57%);
+    background-repeat: no-repeat;
+    background-size: 100% 1000px;
+}
+
+.event-title {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align to the top */
+    padding-top: 50px;
+}
+
+.event-description {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align to the top */
+}
+
+/* Container styles */
+.event-details-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Add transparency */
+    backdrop-filter: blur(2px); /* Add a blur effect to the background */
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 0 auto; /* Center align the container horizontally */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Form input and button styles */
+/* Add your input, label, and button styles here */
+.clickable-button {
+    background-color: #794aa2; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align to the top */
+    padding-bottom: 25px;
+}
+
+.clickable-button:hover {
+    background-color: #604aa2; /* Button color on hover */
+}
+
+/* Label style */
+.name-label::before,
+.number-label::before,
+.address-label::before {
+    content: attr(data-label); /* Use data attribute to specify label text */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+    color: #fff; /* Text color */
+    font-size: 18px; /* Adjust the font size as needed */
+    text-align: center; /* Center-align the label text */
+    width: 100%; /* Make labels take full width */
+}
+
+/* Input style */
+.name-input,
+.number-input,
+.address-input {
+    padding: 5px;
+    width: 15%; /* Adjust the width as needed */
+    margin: 10px auto; /* Center horizontally */
+    display: block; /* Ensure inputs take full width */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.43);
+    color: #fff; /* Text color */
+    font-size: 16px;
+    text-align: center; /* Center-align the input text */
+}
+
+/* Style for radio container (the label) */
+.radio-container {
+    display: flex;
+    align-items: center; /* Center vertically */
+    margin: 10px 0; /* Add some spacing between radio buttons */
+    color: #fff; /* Text color */
+    font-size: 16px;
+}
+
+/* Style for the radio input */
+.radio-input {
+    opacity: 0; /* Hide the default radio input */
+    position: relative;
+    margin-right: 10px; /* Add spacing between the radio input and label text */
+}
+
+/* Style for the radio button itself (the circle) */
+.radio-button {
+    width: 20px; /* Set the width and height of the circle */
+    height: 20px;
+    border: 2px solid #ffffff; /* Border color for the circle */
+    border-radius: 50%; /* Make it a circle */
+    margin-right: 5px; /* Add spacing between the circle and label text */
+    position: relative;
+}
+
+/* Style for the radio button when checked */
+.radio-input:checked + .radio-button::after {
+    content: ""; /* Add a pseudo-element for the checkmark */
+    width: 10px; /* Set the width and height of the checkmark */
+    height: 10px;
+    background-color: #7f5eff; /* Color of the checkmark */
+    border-radius: 50%; /* Make it a circle */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the checkmark */
+    display: block; /* Display the checkmark */
+}
+
+/* Style for the label text */
+.radio-label {
+    color: #fff; /* Text color */
+    cursor: pointer; /* Add a pointer cursor on hover */
+}
+
+/* Style for the radio button on hover */
+.radio-container:hover .radio-input:not(:checked) + .radio-button {
+    border-color: #ffffff; /* Border color on hover */
+}
+
+/* Style for the radio button when checked on hover */
+.radio-container:hover .radio-input:checked + .radio-button::after {
+    background-color: #ffffff; /* Color of the checkmark on hover */
+}
+
+/* Center the radio button horizontally within the container */
+.radio-button {
+    display: flex;
+    align-items: center; /* Center horizontally */
+}
+
+.attending-container {
+    padding-left: 385px;
+}
