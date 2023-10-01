@@ -24,7 +24,7 @@ body {
     display: flex;
     justify-content: center; /* Center horizontally */
     align-items: flex-start; /* Align to the top */
-    padding-top: 50px;
+    padding-top: 5px;
 }
 
 .event-description {
@@ -98,6 +98,10 @@ body {
     color: #fff; /* Text color */
     font-size: 16px;
     text-align: center; /* Center-align the input text */
+}
+
+.address-input {
+    margin-bottom: 20px;
 }
 
 /* Style for radio container (the label) */

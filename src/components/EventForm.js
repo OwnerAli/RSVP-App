@@ -61,10 +61,12 @@ class EventForm extends Component {
     render() {
         return (
             <div>
-                <a href="">
-                    <h1 className="logo">Event Space</h1>
-                    <h2 className="sub-logo">RSVPing Made Simple 🎉</h2>
-                </a>
+                <div className="logo-container">
+                    <a href="">
+                        <h1 className="logo">Event Space</h1>
+                        <h2 className="sub-logo">RSVPing Made Simple 🎉</h2>
+                    </a>
+                </div>
                 <div className="content-container">
                     <h1 className="title">✨ Create Event ✨</h1>
                     <form onSubmit={this.handleSubmit}>

@@ -61,6 +61,7 @@ function EventDetails() {
             name: formData.name,
             number: formData.number,
             address: formData.address,
+            attending: formData.attending,
             plusOne: formData.plusOne
         };
 
@@ -87,92 +88,100 @@ function EventDetails() {
     };
 
     return (
-        <div className="event-details-container">
-            {event ? (
-                <div className="event-details">
-                    <h1 className="event-title">🥳 {event.title.toUpperCase()} 🥳</h1>
-                    <h2 className="event-description">{event.description}</h2>
-                </div>
-            ) : (
-                <p>Invalid or expired invite!</p>
-            )}
-
-            <form onSubmit={handleSubmit} className="event-form">
-                <label className="name-label">
-                    <input
-                        type="text"
-                        name="name"
-                        className="name-input"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Your Name"
-                        required
-                    />
-                </label>
-                <label className="number-label">
-                <input
-                    type="text"
-                    name="number"
-                    className="number-input"
-                    value={formData.number}
-                    onChange={handleInputChange}
-                    placeholder="Your Number"
-                />
-                </label>
-                <label className="address-label">
-                <input
-                    type="text"
-                    name="address"
-                    className="address-input"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                    placeholder="Your Address"
-                />
-                </label>
-                <div className="attending-container">
-                    <label className="attending-label">Will You Be Attending?</label>
-                    <label className="radio-container">
-                        <input type="radio" name="attending" value="true" className="radio-input" />
-                        <span className="radio-button"></span>
-                        <span className="radio-label">Yes</span>
-                    </label>
-                    <label className="radio-container">
-                        <input type="radio" name="attending" value="no" className="radio-input" />
-                        <span className="radio-button"></span>
-                        <span className="radio-label">No</span>
-                    </label>
-                </div>
-                {formData.attending === "true" ? (
-                    <div>
-                        <label>Plus 1 Adult?</label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="plusOne"
-                                value="true"
-                                onChange={handleInputChange}
-                                required
-                            />
-                            Yes
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="plusOne"
-                                value="no"
-                                onChange={handleInputChange}
-                                required
-                            />
-                            No
-                        </label>
+        <div>
+            <div className="testtt">
+                <a href="">
+                    <h1 className="logo">Event Space</h1>
+                    <h2 className="sub-logo">RSVPing Made Simple 🎉</h2>
+                </a>
+            </div>
+            <div className="event-details-container">
+                {event ? (
+                    <div className="event-details">
+                        <h1 className="event-title">🥳 RSVP FOR {event.title.toUpperCase()} 🥳</h1>
+                        <h2 className="event-description">{event.description}</h2>
                     </div>
                 ) : (
-                    <p></p>
+                    <p>Invalid or expired invite!</p>
                 )}
-                <div className="button">
-                    <button className="clickable-button" type="submit">RSVP</button>
-                </div>
-            </form>
+
+                <form onSubmit={handleSubmit} className="event-form">
+                    <label className="name-label">
+                        <input
+                            type="text"
+                            name="name"
+                            className="name-input"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            placeholder="Your Name"
+                            required
+                        />
+                    </label>
+                    <label className="number-label">
+                        <input
+                            type="text"
+                            name="number"
+                            className="number-input"
+                            value={formData.number}
+                            onChange={handleInputChange}
+                            placeholder="Your Number"
+                        />
+                    </label>
+                    <label className="address-label">
+                        <input
+                            type="text"
+                            name="address"
+                            className="address-input"
+                            value={formData.address}
+                            onChange={handleInputChange}
+                            placeholder="Your Address"
+                        />
+                    </label>
+                    <div className="attending-container">
+                        <label className="attending-label">Will You Be Attending?</label>
+                        <label className="radio-container">
+                            <input type="radio" name="attending" value="true" className="radio-input" onChange={handleInputChange}/>
+                            <span className="radio-button"></span>
+                            <span className="radio-label">Yes</span>
+                        </label>
+                        <label className="radio-container">
+                            <input type="radio" name="attending" value="no" className="radio-input" onChange={handleInputChange}/>
+                            <span className="radio-button"></span>
+                            <span className="radio-label">No</span>
+                        </label>
+                    </div>
+                    {formData.attending === "true" ? (
+                        <div>
+                            <label>Plus 1 Adult?</label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="plusOne"
+                                    value="true"
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                Yes
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="plusOne"
+                                    value="no"
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                                No
+                            </label>
+                        </div>
+                    ) : (
+                        <p></p>
+                    )}
+                    <div className="button">
+                        <button className="clickable-button" type="submit">RSVP</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

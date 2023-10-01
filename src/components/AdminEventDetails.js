@@ -5,6 +5,7 @@ import {useParams} from "react-router-dom";
 function AdminEventDetails() {
 
     const {eventId} = useParams();
+    const [name, setName] = useState("");
     const [attendees, setAttendees] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -23,13 +24,38 @@ function AdminEventDetails() {
 
     return (
         <div>
-            <h2>Event Attendees</h2>
+            <div className="logo-container">
+                <a href="">
+                    <h1 className="logo">Event Space</h1>
+                    <h2 className="sub-logo">RSVPing Made Simple 🎉</h2>
+                </a>
+            </div>
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <ul>
-                    {attendees.values}
-                </ul>
+                <div className="table-container">
+                    <h2 className="table-heading">🙋 RSVP List 🙋</h2>
+                    <table className="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number</th>
+                            <th>Address</th>
+                            <th>Attending</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {attendees.map((attendee, index) => (
+                            <tr key={index}>
+                                <td>{attendee.name}</td>
+                                <td>{attendee.number}</td>
+                                <td>{attendee.address}</td>
+                                <td>{attendee.attending}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
             )}
         </div>
     );
