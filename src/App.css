@@ -94,6 +94,17 @@ a {
     max-width: 290px;
 }
 
+.tables-container {
+    display: flex;
+    flex-direction: row; /* Arrange the tables side by side */
+    justify-content: space-between; /* Add space between the tables */
+    align-items: flex-start; /* Align the tables to the top */
+}
+
+.table-container {
+    flex: 1; /* Make the tables take up equal width within the container */
+}
+
 .table-heading {
     display: flex;
     align-content: flex-start;
@@ -154,4 +165,11 @@ a {
 
 table tbody tr:last-of-type {
     border-bottom: 4px solid rgb(255, 255, 255);
+}
+
+.social-logo {
+    width: 50px;
+    height: auto;
+    padding-top: 250px;
+    margin-left: 940px;
 }

@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import axios from "axios";
 import "../App.css"
 
+import footerImage from "../images/discord.png"
+import {useNavigate} from "react-router-dom";
+
 class EventForm extends Component {
 
     constructor(props) {
@@ -51,7 +54,6 @@ class EventForm extends Component {
             })
             .then((response) => {
                 console.log("Event created:", response.data);
-                // Handle success, such as redirecting to the event details page
             })
             .catch((error) => {
                 console.error("Error creating event:", error);
@@ -61,12 +63,14 @@ class EventForm extends Component {
     render() {
         return (
             <div>
-                <div className="logo-container">
-                    <a href="">
-                        <h1 className="logo">Event Space</h1>
-                        <h2 className="sub-logo">RSVPing Made Simple 🎉</h2>
-                    </a>
-                </div>
+                <header className="header">
+                    <div className="logo-container">
+                        <a href="">
+                            <h1 className="logo">Event Space</h1>
+                            <h2 className="sub-logo">RSVPing Made Simple 🎉</h2>
+                        </a>
+                    </div>
+                </header>
                 <div className="content-container">
                     <h1 className="title">✨ Create Event ✨</h1>
                     <form onSubmit={this.handleSubmit}>
@@ -119,10 +123,16 @@ class EventForm extends Component {
                             />
                         </div>
                         <div className="button">
-                            <button type="submit" className="clickable-button">Create Event</button>
+                            <button type="submit" className="clickable-button">Create Event
+                            </button>
                         </div>
                     </form>
                 </div>
+                <footer>
+                    <a href="">
+                        <img src={footerImage} alt="Footer Image" className="social-logo"/>
+                    </a>
+                </footer>
             </div>
         );
     }
