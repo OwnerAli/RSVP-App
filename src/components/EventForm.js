@@ -15,7 +15,8 @@ class EventForm extends Component {
             startTime: "",
             endTime: "",
             address: "",
-            eventCreated: ""
+            eventCreated: false,
+            eventId: ""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +37,6 @@ class EventForm extends Component {
             startTime: this.state.startTime,
             endTime: this.state.endTime,
             address: this.state.address,
-            eventCreated: true
         };
 
         this.setState({
@@ -44,7 +44,6 @@ class EventForm extends Component {
             startTime: "",
             endTime: "",
             address: "",
-            eventCreated: true
         })
 
         axios
@@ -54,7 +53,10 @@ class EventForm extends Component {
                 },
             })
             .then((response) => {
-                console.log("Event created:", response.data);
+                this.setState({
+                    eventCreated: true,
+                    eventId: response.data.id
+                })
             })
             .catch((error) => {
                 console.error("Error creating event:", error);
@@ -62,6 +64,7 @@ class EventForm extends Component {
     }
 
     render() {
+        if (this.state.eventCreated) return <Navigate to={`/event/${this.state.eventId}`}/>;
         return (
             <div>
                 <header className="header">
@@ -123,9 +126,9 @@ class EventForm extends Component {
                                 onChange={this.handleInputChange}
                             />
                         </div>
-                        {this.state.eventCreated ? (<Navigate to={`/event/${this.state.title}`} />) : <div className="button">
+                        <div className="button">
                             <button type="submit" className="clickable-button">Create Event</button>
-                        </div>}
+                        </div>
                     </form>
                 </div>
                 <footer>
