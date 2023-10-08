@@ -3,7 +3,7 @@ import axios from "axios";
 import "../App.css"
 
 import footerImage from "../images/discord.png"
-import {useNavigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 
 class EventForm extends Component {
 
@@ -15,6 +15,7 @@ class EventForm extends Component {
             startTime: "",
             endTime: "",
             address: "",
+            eventCreated: ""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,21 +30,21 @@ class EventForm extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // Create an event object with the form data
         const newEvent = {
             title: this.state.title,
             description: this.state.description,
             startTime: this.state.startTime,
             endTime: this.state.endTime,
-            address: this.state.address, // Include the address
+            address: this.state.address,
+            eventCreated: true
         };
 
         this.setState({
-            title: "",
             description: "",
             startTime: "",
             endTime: "",
             address: "",
+            eventCreated: true
         })
 
         axios
@@ -122,10 +123,9 @@ class EventForm extends Component {
                                 onChange={this.handleInputChange}
                             />
                         </div>
-                        <div className="button">
-                            <button type="submit" className="clickable-button">Create Event
-                            </button>
-                        </div>
+                        {this.state.eventCreated ? (<Navigate to={`/event/${this.state.title}`} />) : <div className="button">
+                            <button type="submit" className="clickable-button">Create Event</button>
+                        </div>}
                     </form>
                 </div>
                 <footer>

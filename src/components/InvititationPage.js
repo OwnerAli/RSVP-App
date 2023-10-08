@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import "../EventDetails.css"
 
-function EventDetails() {
+function InvititationPage() {
 
     const {inviteId} = useParams();
     const [formattedTimeStamp, setFormattedTimeStamp] = useState(null);
@@ -186,4 +186,4 @@ function EventDetails() {
     );
 }
 
-export default EventDetails;
+export default InvititationPage;
